@@ -1,23 +1,20 @@
-﻿namespace QueComLib.Enums
+﻿namespace SocketClient.Constants
 {
-    /// <summary>
-    /// A channel to describe the queue to which the message is intended to/from. It is unicode equivalent to starting at 'A'.
-    /// </summary>
-    public enum QueChannel
+    public class QChn
     {
         /// <summary>
         /// Pending messages channel
         /// </summary>
-        pnd = 65,
+        public const char PND = 'A';
 
         /// <summary>
         /// Succsess messages channel
         /// </summary>
-        suc,
+        public const char SUC = 'B';
 
         /// <summary>
         /// Failed messages channel
         /// </summary>
-        fld
+        public const char FLD = 'C';
     }
 }

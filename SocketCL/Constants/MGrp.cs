@@ -1,4 +1,4 @@
-﻿namespace QueComLib.Constants
+﻿namespace SocketCL.Constants
 {
     /// <summary>
     /// This is a Message Group which determines the message's accessibility options, e.g, how many times the message should be read before being removed from queue.

@@ -1,9 +1,9 @@
-﻿namespace QueComLib.Enums
+﻿namespace SocketCL.Enums
 {
     /// <summary>
-    /// The type of the message which determines at which stage is the message created and directed to and from.
+    /// The category of the message which defines the category to which the message falls under
     /// </summary>
-    public enum MTyp
+    public enum MCtg
     {
         /// <summary>
         /// Message is intended for topic

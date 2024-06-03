@@ -1,4 +1,4 @@
-﻿namespace QueComLib.Models
+﻿namespace SocketCL.Models
 {
     public class HostConfig
     {

@@ -1,6 +1,6 @@
-﻿using QueComLib.Constants;
+﻿using SocketCL.Constants;
 
-namespace QueComLib.Models
+namespace SocketCL.Models
 {
     public class MessageContainer
     {

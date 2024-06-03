@@ -1,4 +1,4 @@
-﻿namespace QueComLib.Constants
+﻿namespace SocketCL.Constants
 {
     /// <summary>
     /// This model that determines the module which initiated the request (or message).

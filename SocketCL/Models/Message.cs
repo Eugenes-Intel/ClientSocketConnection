@@ -1,6 +1,6 @@
-﻿using QueComLib.Enums;
+﻿using SocketCL.Enums;
 
-namespace QueComLib.Models;
+namespace SocketCL.Models;
 
 public class Message
 {
@@ -27,7 +27,7 @@ public class Message
     public string? Sender { get; set; }
 
     /// <summary>
-    /// Distingiushes requests based on the category on which they are processed. It is influenced by elements in <seealso cref="QueComLib.Constants.RCatg"/>
+    /// Distingiushes requests based on the category on which they are processed. It is influenced by elements in <seealso cref="SocketCL.Constants.RCatg"/>
     /// </summary>
     public char Catg { get; set; }
 

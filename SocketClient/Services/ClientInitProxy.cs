@@ -1,11 +1,11 @@
-﻿using QueComLib.Constants;
-using QueComLib.Models;
+﻿using SocketCL.Constants;
+using SocketCL.Models;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 
-namespace QueClient.Services
+namespace SocketClient.Services
 {
     internal class ClientInitProxy : IClientInitProxy
     {
@@ -31,9 +31,9 @@ namespace QueClient.Services
             _port = port;
         }
 
-        public async ValueTask SendAsync(Message message, char queueName, byte sbit = Bit.PLH)
+        public async ValueTask SendAsync(Message message, char socketueName, byte sbit = Bit.PLH)
         {
-            var buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new MessagePackage { SBit = sbit, Channel = queueName, Message = message }));
+            var buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new MessagePackage { SBit = sbit, Channel = socketueName, Message = message }));
 
             var b = _client.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, (asyncResult) =>
             {
@@ -46,16 +46,16 @@ namespace QueClient.Services
             await Task.CompletedTask;
         }
 
-        public async ValueTask<MessageContainer?> GetAsync(Message message, char queueName, byte sbit = Bit.GMS)
+        public async ValueTask<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS)
         {
-            //return GetTAsyncS<MessageContainer>(new MessagePackage { SBit = Bit.GMS, Channel = queueName, Message = message });
+            //return GetTAsyncS<MessageContainer>(new MessagePackage { SBit = Bit.GMS, Channel = socketueName, Message = message });
 
-            return await GetTAsyncS<MessageContainer>(new MessagePackage { SBit = sbit, Channel = queueName, Message = message });
+            return await GetTAsyncS<MessageContainer>(new MessagePackage { SBit = sbit, Channel = socketueName, Message = message });
         }
 
-        public async ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char queueName, byte sbit = Bit.GMS)
+        public async ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMS)
         {
-            return await GetTAsyncS<IEnumerable<MessageContainer>>(new MessagePackage { SBit = sbit, Channel = queueName, Message = message });
+            return await GetTAsyncS<IEnumerable<MessageContainer>>(new MessagePackage { SBit = sbit, Channel = socketueName, Message = message });
         }
 
         public void Shutdown() => _client.Shutdown(SocketShutdown.Both);

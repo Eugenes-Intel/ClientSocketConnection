@@ -1,14 +1,14 @@
-﻿using QueClient.Exceptions;
-using QueComLib.Constants;
-using QueComLib.Models;
+﻿using SocketClient.Exceptions;
+using SocketCL.Constants;
+using SocketCL.Models;
 
-namespace QueClient.Services
+namespace SocketClient.Services
 {
-    public class QueueClient : IQueueClient
+    public class SocketueClient : ISocketClient
     {
         private IClientInitProxy? _client;
 
-        public QueueClient() { }
+        public SocketueClient() { }
 
         public void Close()
         {
@@ -30,22 +30,22 @@ namespace QueClient.Services
             await _client.DisconectAsync(reuse, cancellationToken);
         }
 
-        public async ValueTask<MessageContainer?> GetAsync(Message message, char queueName, byte sbit = Bit.GMS)
+        public async ValueTask<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS)
         {
             if (_client is null)
             {
                 throw new ClientNotConnectedException();
             }
-            return await _client.GetAsync(message, queueName, sbit);
+            return await _client.GetAsync(message, socketueName, sbit);
         }
 
-        public async ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char queueName, byte sbit = Bit.GMS)
+        public async ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMS)
         {
             if (_client is null)
             {
                 throw new ClientNotConnectedException();
             }
-            return await _client.GetManyAsync(message, queueName, sbit);
+            return await _client.GetManyAsync(message, socketueName, sbit);
         }
 
         public async ValueTask ReleaseAsync(CancellationToken cancellationToken = default)
@@ -58,13 +58,13 @@ namespace QueClient.Services
             _client.Close();
         }
 
-        public async ValueTask SendAsync(Message message, char queueName, byte sbit = Bit.PLH)
+        public async ValueTask SendAsync(Message message, char socketueName, byte sbit = Bit.PLH)
         {
             if (_client is null)
             {
                 throw new ClientNotConnectedException();
             }
-            await _client.SendAsync(message, queueName, sbit);
+            await _client.SendAsync(message, socketueName, sbit);
         }
 
         public void Shutdown()

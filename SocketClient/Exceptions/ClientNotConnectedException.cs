@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace QueClient.Exceptions
+namespace SocketClient.Exceptions
 {
     public class ClientNotConnectedException : Exception
     {

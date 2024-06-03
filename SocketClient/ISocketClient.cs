@@ -1,15 +1,17 @@
-﻿using QueComLib.Constants;
-using QueComLib.Models;
+﻿
 
-namespace QueClient
+using SocketCL.Constants;
+using SocketCL.Models;
+
+namespace SocketClient
 {
-    public interface IQueueClient
+    public interface ISocketClient
     {
-        ValueTask SendAsync(Message message, char queueName, byte sbit = Bit.PLH);
+        ValueTask SendAsync(Message message, char socketueName, byte sbit = Bit.PLH);
 
-        ValueTask<MessageContainer?> GetAsync(Message message, char queueName, byte sbit = Bit.GMS);
+        ValueTask<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS);
 
-        ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char queueName, byte sbit = Bit.GMM);
+        ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMM);
 
         ValueTask DisconectAsync(bool reuse, CancellationToken cancellationToken = default);
 

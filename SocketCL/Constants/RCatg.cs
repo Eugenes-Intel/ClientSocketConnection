@@ -1,4 +1,4 @@
-﻿namespace QueComLib.Constants
+﻿namespace SocketCL.Constants
 {
     /// <summary>
     /// This is a request category which determines the request's domain options, e.g, which objects does this request affect or is limited to interact with.

@@ -1,4 +1,4 @@
-﻿namespace QueComLib.Constants
+﻿namespace SocketCL.Constants
 {
     public class Bit
     {
