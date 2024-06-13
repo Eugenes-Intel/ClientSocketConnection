@@ -71,5 +71,15 @@
         /// Fiscal Day Status Request.
         /// </summary>
         public const byte FST = 0x026;
+
+        /// <summary>
+        /// Server Comms Server Ping Request.
+        /// </summary>
+        public const byte PNG = 0x027;
+
+        /// <summary>
+        /// Fiscal Day Configuration Request.
+        /// </summary>
+        public const byte FCG = 0x028;
     }
 }
