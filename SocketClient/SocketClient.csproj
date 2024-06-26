@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Rootsware.Integration.SocketClient.Core</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.1.0</Version>
 		<Authors>Rootsware</Authors>
 		<Product>SocketClient</Product>
 		<Title>Client Socket Connection</Title>
@@ -20,6 +20,9 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>Socket Connection Intergration Communication</PackageTags>
 		<PackageReleaseNotes>This is the initial release</PackageReleaseNotes>
+		<DebugType>none</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<AllowedReferenceRelatedFileExtensions>*.pdb</AllowedReferenceRelatedFileExtensions>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -34,7 +37,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Rootsware.Libraries.SocketCL.Core" Version="1.0.0" />
+	  <PackageReference Include="Rootsware.Libraries.SocketCL.Core" Version="1.0.3" />
 	</ItemGroup>
 
 </Project>

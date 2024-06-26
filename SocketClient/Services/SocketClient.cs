@@ -1,14 +1,14 @@
-﻿using SocketClient.Exceptions;
-using SocketCL.Constants;
+﻿using SocketCL.Constants;
 using SocketCL.Models;
+using SocketClient.Exceptions;
 
 namespace SocketClient.Services
 {
-    public class SocketueClient : ISocketClient
+    public class SocketClient : ISocketClient
     {
         private IClientInitProxy? _client;
 
-        public SocketueClient() { }
+        public SocketClient() { }
 
         public void Close()
         {
@@ -19,7 +19,7 @@ namespace SocketClient.Services
             _client.Close();
         }
 
-        public void Connect(short port) => _client = new ClientInitProxy(port);// => _client ??= new ClientInitProxy(port);
+        public void Connect(short port) => _client ??= new ClientInitProxy(port);// => _client ??= new ClientInitProxy(port);
 
         public async ValueTask DisconectAsync(bool reuse, CancellationToken cancellationToken = default)
         {
@@ -54,8 +54,8 @@ namespace SocketClient.Services
             {
                 throw new ClientNotConnectedException();
             }
-            await _client.DisconectAsync(false, cancellationToken);
-            _client.Close();
+            await _client.DisconectAsync(true, cancellationToken);
+            //_client.Close();
         }
 
         public async ValueTask SendAsync(Message message, char socketueName, byte sbit = Bit.PLH)
