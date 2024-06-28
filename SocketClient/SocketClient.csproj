@@ -6,12 +6,12 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Rootsware.Integration.SocketClient.Core</PackageId>
-		<Version>1.1.0</Version>
+		<Version>1.2.0</Version>
 		<Authors>Rootsware</Authors>
 		<Product>SocketClient</Product>
 		<Title>Client Socket Connection</Title>
 		<Description>Facilitates socket communication between a client service and server service. This package in one-directional. </Description>
-		<Copyright>The package is open source to edit, modify and enhancement.</Copyright>
+		<Copyright>2024</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageProjectUrl>https://github.com/Eugenes-Intel/ClientSocketConnection.git</PackageProjectUrl>
@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Include="..\README.md">
+	  <None Update="README.md">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
 	  </None>

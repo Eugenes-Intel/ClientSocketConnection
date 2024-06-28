@@ -24,9 +24,9 @@ namespace SocketClient.Services
 
             _endPoint = new IPEndPoint(hostEntry.AddressList[0], port);
 
-            _client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //_client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            _client.Connect(_endPoint);
+            //_client.Connect(_endPoint);
 
             _port = port;
         }
@@ -98,8 +98,12 @@ namespace SocketClient.Services
 
         public async ValueTask<T?> GetTAsyncS<T>(MessagePackage messagePackage) where T : class
         {
+            var _client = new Socket(_endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
             try
             {
+                if (!_client.Connected) await _client.ConnectAsync(_endPoint);
+
                 var buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(messagePackage));
 
                 await _client.SendAsync(buffer, SocketFlags.None);
@@ -108,7 +112,13 @@ namespace SocketClient.Services
 
                 var receiveSize = await _client.ReceiveAsync(receiveBuffer, SocketFlags.None);
 
-                return JsonSerializer.Deserialize<T>(Encoding.UTF8.GetString(receiveBuffer, 0, receiveSize))!;
+                _client.Shutdown(SocketShutdown.Both);
+
+                var bufferData = new byte[receiveSize];
+
+                Array.Copy(receiveBuffer, bufferData, receiveSize);
+
+                return JsonSerializer.Deserialize<T>(Encoding.UTF8.GetString(bufferData, 0, receiveSize));
             }
             catch (SocketException) { return null; }
         }
