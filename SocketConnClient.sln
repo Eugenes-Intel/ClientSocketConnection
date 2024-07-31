@@ -5,9 +5,9 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketConnClient", "SocketConnClient\SocketConnClient.csproj", "{2A8A1276-8A84-454A-8CE2-3BC5E7F1A0C1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketCL", "SocketCL\SocketCL.csproj", "{261AD0A6-E2AD-4604-BE14-F60D061181DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rootsware.Libraries.SocketCL", "Rootsware.Libraries.SocketCL\Rootsware.Libraries.SocketCL.csproj", "{261AD0A6-E2AD-4604-BE14-F60D061181DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketClient", "SocketClient\SocketClient.csproj", "{120D6CF2-9374-4167-A08A-31910D703853}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rootsware.Integration.SocketClient", "Rootsware.Integration.SocketClient\Rootsware.Integration.SocketClient.csproj", "{120D6CF2-9374-4167-A08A-31910D703853}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
