@@ -20,32 +20,32 @@ public class SocketClient : ISocketClient
         // => _client ??= new ClientInitProxy(port);
     }
 
-    public async ValueTask DisconectAsync(bool reuse, CancellationToken cancellationToken = default)
+    public async Task DisconectAsync(bool reuse, CancellationToken cancellationToken = default)
     {
         if (_client is null) throw new ClientNotConnectedException();
         await _client.DisconectAsync(reuse, cancellationToken);
     }
 
-    public async ValueTask<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS)
+    public async Task<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS)
     {
         if (_client is null) throw new ClientNotConnectedException();
         return await _client.GetAsync(message, socketueName, sbit);
     }
 
-    public async ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMS)
+    public async Task<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMS)
     {
         if (_client is null) throw new ClientNotConnectedException();
         return await _client.GetManyAsync(message, socketueName, sbit);
     }
 
-    public async ValueTask ReleaseAsync(CancellationToken cancellationToken = default)
+    public async Task ReleaseAsync(CancellationToken cancellationToken = default)
     {
         if (_client is null) throw new ClientNotConnectedException();
         await _client.DisconectAsync(true, cancellationToken);
         //_client.Close();
     }
 
-    public async ValueTask SendAsync(Message message, char socketueName, byte sbit = Bit.PLH)
+    public async Task SendAsync(Message message, char socketueName, byte sbit = Bit.PLH)
     {
         if (_client is null) throw new ClientNotConnectedException();
         await _client.SendAsync(message, socketueName, sbit);

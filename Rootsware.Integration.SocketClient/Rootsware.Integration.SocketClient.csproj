@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageId>Rootsware.Integration.SocketClient.Core</PackageId>
-        <Version>2.2.0</Version>
+        <Version>2.3.0</Version>
         <Authors>Rootsware</Authors>
         <Product>SocketClient</Product>
         <Title>Client Socket Connection</Title>
@@ -37,7 +37,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Rootsware.Libraries.SocketCL.Core" Version="2.0.3"/>
+        <ProjectReference Include="..\Rootsware.Libraries.SocketCL\Rootsware.Libraries.SocketCL.csproj" />
     </ItemGroup>
 
 </Project>

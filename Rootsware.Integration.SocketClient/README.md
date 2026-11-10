@@ -155,3 +155,14 @@ request.
 Renamed
 project
 namespaces.
+
+###
+
+v2.3.0
+[Namespaces]
+*1.* Changed all **[ValueTask]** -> **[Task]**
+
+## Local source dependencies — 2026-11-10
+
+Local builds reference the SocketCL project directly. The sibling FCI checkout consumes
+this project directly. Published package identities and public interfaces remain unchanged.

@@ -8,7 +8,7 @@ internal interface IClientInitProxy
 {
     Socket Client { get; }
     void Close();
-    ValueTask DisconectAsync(bool reuse, CancellationToken cancellationToken = default);
+    Task DisconectAsync(bool reuse, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     A
@@ -76,7 +76,7 @@ internal interface IClientInitProxy
     ///         cref="Bit" />
     /// </param>
     /// <returns></returns>
-    ValueTask<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS);
+    Task<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS);
 
     /// <summary>
     ///     A
@@ -144,10 +144,10 @@ internal interface IClientInitProxy
     ///         cref="Bit" />
     /// </param>
     /// <returns></returns>
-    ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char queueName, byte sbit = Bit.GMS);
+    Task<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char queueName, byte sbit = Bit.GMS);
 
-    ValueTask<T?> GetTAsync<T>(MessagePackage messagePackage);
-    ValueTask<T?> GetTAsyncS<T>(MessagePackage messagePackage) where T : class;
+    Task<T?> GetTAsync<T>(MessagePackage messagePackage);
+    Task<T?> GetTAsyncS<T>(MessagePackage messagePackage) where T : class;
 
     /// <summary>
     ///     A
@@ -214,7 +214,7 @@ internal interface IClientInitProxy
     ///         cref="Bit" />
     /// </param>
     /// <returns></returns>
-    ValueTask SendAsync(Message message, char queueName, byte sbit = Bit.PLH);
+    Task SendAsync(Message message, char queueName, byte sbit = Bit.PLH);
 
     void Shutdown();
 }

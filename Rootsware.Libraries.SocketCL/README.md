@@ -31,3 +31,9 @@ v2.0.3
 Renamed
 project
 namespaces.
+
+###
+
+v2.1.0
+[Namespaces]
+*1.* Changed all **[ValueTask]** -> **[Task]**

@@ -30,7 +30,7 @@ internal class ClientInitProxy : IClientInitProxy
 
     public Socket Client { get; }
 
-    public async ValueTask SendAsync(Message message, char socketueName, byte sbit = Bit.PLH)
+    public async Task SendAsync(Message message, char socketueName, byte sbit = Bit.PLH)
     {
         var buffer = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new MessagePackage { SBit = sbit, Channel = socketueName, Message = message }));
 
@@ -44,14 +44,14 @@ internal class ClientInitProxy : IClientInitProxy
         await Task.CompletedTask;
     }
 
-    public async ValueTask<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS)
+    public async Task<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS)
     {
         //return GetTAsyncS<MessageContainer>(new MessagePackage { SBit = Bit.GMS, Channel = socketueName, Message = message });
 
         return await GetTAsyncS<MessageContainer>(new MessagePackage { SBit = sbit, Channel = socketueName, Message = message });
     }
 
-    public async ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMS)
+    public async Task<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMS)
     {
         return await GetTAsyncS<IEnumerable<MessageContainer>>(new MessagePackage { SBit = sbit, Channel = socketueName, Message = message });
     }
@@ -66,12 +66,12 @@ internal class ClientInitProxy : IClientInitProxy
         Client.Close();
     }
 
-    public ValueTask DisconectAsync(bool reuse, CancellationToken cancellationToken = default)
+    public async Task DisconectAsync(bool reuse, CancellationToken cancellationToken = default)
     {
-        return Client.DisconnectAsync(reuse, cancellationToken);
+        await Client.DisconnectAsync(reuse, cancellationToken);
     }
 
-    public async ValueTask<T?> GetTAsync<T>(MessagePackage messagePackage)
+    public async Task<T?> GetTAsync<T>(MessagePackage messagePackage)
     {
         var t = default(T);
 
@@ -102,7 +102,7 @@ internal class ClientInitProxy : IClientInitProxy
         return t;
     }
 
-    public async ValueTask<T?> GetTAsyncS<T>(MessagePackage messagePackage) where T : class
+    public async Task<T?> GetTAsyncS<T>(MessagePackage messagePackage) where T : class
     {
         var _client = new Socket(_endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 

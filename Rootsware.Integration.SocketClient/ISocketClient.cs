@@ -5,13 +5,13 @@ namespace Rootsware.Integration.SocketClient;
 
 public interface ISocketClient
 {
-    ValueTask SendAsync(Message message, char socketueName, byte sbit = Bit.PLH);
+    Task SendAsync(Message message, char socketueName, byte sbit = Bit.PLH);
 
-    ValueTask<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS);
+    Task<MessageContainer?> GetAsync(Message message, char socketueName, byte sbit = Bit.GMS);
 
-    ValueTask<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMM);
+    Task<IEnumerable<MessageContainer>?> GetManyAsync(Message message, char socketueName, byte sbit = Bit.GMM);
 
-    ValueTask DisconectAsync(bool reuse, CancellationToken cancellationToken = default);
+    Task DisconectAsync(bool reuse, CancellationToken cancellationToken = default);
 
     void Shutdown();
 
@@ -38,5 +38,5 @@ public interface ISocketClient
     ///     name="cancellationToken">
     /// </param>
     /// <returns></returns>
-    ValueTask ReleaseAsync(CancellationToken cancellationToken = default);
+    Task ReleaseAsync(CancellationToken cancellationToken = default);
 }
